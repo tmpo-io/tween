@@ -5,7 +5,6 @@
   "main": "./bundles/store.umd.js",
   "module": "index.js",
   "scripts": {
-    "ngc": "node_modules/.bin/ngc -p tsconfig.json",
     "clean:pre": "rimraf release",
     "clean:post": "rimraf \"src/**/*.ngfactory.ts\"",
     "copy": "cpy README.md LICENSE package.json release",
@@ -29,19 +28,19 @@
   "homepage": "https://github.com/tmpo-io/tween",
   "author": "Jordi Collell <j@tmpo.io>",
   "peerDependencies": {
-    "@angular/core": "^2.1.2",
+    "@angular/core": "^2.2.1",
     "rxjs": "^5.0.0-beta.12"
   },
   "devDependencies": {
-    "@angular/common": "^2.2.0",
-    "@angular/compiler": "^2.2.0",
-    "@angular/compiler-cli": "^2.2.0",
-    "@angular/core": "^2.2.0",
-    "@angular/platform-browser": "^2.2.0",
-    "@angular/platform-browser-dynamic": "^2.2.0",
-    "@angular/platform-server": "^2.2.0",
+    "@angular/common": "^2.2.1",
+    "@angular/compiler": "^2.2.1",
+    "@angular/compiler-cli": "^2.2.1",
+    "@angular/core": "^2.2.1",
+    "@angular/platform-browser": "^2.2.1",
+    "@angular/platform-browser-dynamic": "^2.2.1",
+    "@angular/platform-server": "^2.2.1",
     "@types/jasmine": "^2.2.33",
-    "@types/node": "^6.0.42",
+    "@types/node": "^6.0.38",
     "awesome-typescript-loader": "^2.2.1",
     "core-js": "^2.4.1",
     "cpy-cli": "^1.0.1",
@@ -60,11 +59,10 @@
     "ts-loader": "^0.8.2",
     "tslint": "^3.15.1",
     "tslint-loader": "^2.1.5",
-    "typescript": "^2.1.1",
+    "typescript": "^2.0.2",
     "uglifyjs": "^2.4.10",
-    "zone.js": "^0.6.17"
-  },
-  "dependencies": {
-    "codelyzer": "^1.0.0-beta.4"
+    "webpack": "^2.1.0-beta.21",
+    "zone.js": "^0.6.17",
+    "codelyzer": "^1.0.0-beta.3"
   }
 }
