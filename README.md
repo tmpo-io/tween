@@ -1,15 +1,21 @@
-# TmpoTween
+## tmpo-tween
 
 WIP
 
+A simple service for creating reactive tweens for angular2, with a api like tweenlite...
 
-A module that provides a simple service for creating 
-reactive tweens for angular2.
+You *mostly will not need it and you must work with animation framework* on Angular based on webanimations. But sure, when you hit with a corner case where
+you need to manually do a tween of something, you can use it.
 
-You mostly will not need it and can work with animation framework on Angular based on style/css animations. But sure, one day, you've got on a corner case where
-you need to manually do a tween of something.
+Our use case is working with pixi.js
 
-My use case is working with pixi.js
+## Motivation
+
+- Because we found that rxjs is powerful
+- Because we don't want another dependency mostly wrote on js inside our project.
+- Because we want to have tweens like observables, and get crazy with them.
+
+## Example
 
 1. Inject TmpoTweenService
 2. TmpoTweenService.to(element, duration, properties)
@@ -76,7 +82,10 @@ export class AppComponent implements OnInit {
 }
 ```
 
-
 Check a demo here
 http://embed.plnkr.co/1GE1GI/
+
+
+Inspiration from:
+https://github.com/staltz/rxtween
 
