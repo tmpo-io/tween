@@ -12,6 +12,10 @@ import 'rxjs/add/operator/map';
 
 import { Easing } from './easing';
 
+export interface Poperties {
+  easing?: any;
+}
+
 
 @Injectable()
 export class TmpoTweenService {
@@ -28,7 +32,7 @@ export class TmpoTweenService {
 
   // Returns the initial observable without easing conversions
   // to tween to someting
-  toObservable(speed: number): Observable<number> {
+  public toObservable(speed: number): Observable<number> {
     const steps = speed / this.rate;
     return Observable
       .interval(this.rate)
@@ -38,7 +42,8 @@ export class TmpoTweenService {
 
   // to will tween properties of el, with duration and expressed with
   // props. More or less mimics the Tweenlite api.
-  to(el: any, duration: number, props: any): Observable<any> {
+  // <T>(arg: T): T
+  public to<T extends Poperties>(el: T, duration: number, props: T): Observable<T> {
 
     let stre$ = this.toObservable(duration);
     let keys = Object.keys(props);
@@ -64,10 +69,10 @@ export class TmpoTweenService {
           t[k] = easing(x, initial[k], change[k], speed);
         });
         return t;
-      });
+      }) as Observable<T>;
   }
   // stops all tweens in progrress
-  stopAll() {
+  public stopAll() {
     this.cancel$.next(true);
   }
 

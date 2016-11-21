@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 
-import { TmpoTween } from '../tween/tween';
+import { TmpoTweenService } from 'tmpo-tween';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,7 @@ import { TmpoTween } from '../tween/tween';
     HttpModule
   ],
   providers: [
-    TmpoTween
+    TmpoTweenService
   ],
   bootstrap: [AppComponent]
 })

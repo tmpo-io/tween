@@ -1,10 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/do';
 
 
-import { TmpoTween } from '../tween/tween';
+import { TmpoTweenService } from 'tmpo-tween';
+
+interface Nums {
+  num: number;
+  num2: number;
+}
 
 
 @Component({
@@ -17,16 +22,18 @@ export class AppComponent implements OnInit {
   num = 1000;
   num2 = -5000;
 
-  tween$: Observable<any>;
+  p:Nums = { num: -1000, num2: 5000 };
+
+  tween$: Observable<Nums>;
 
   title = 'Observable property tween';
 
-  constructor(public tween: TmpoTween) { }
+  constructor(public tween: TmpoTweenService) { }
 
   ngOnInit() {
 
     this.tween$ = this.tween
-      .to(this, 10000, { num: -1000, num2: 5000 });
+      .to(this, 10000, this.p);
 
     this.tween$
       .do(x => Object.assign(this, x))
@@ -35,9 +42,12 @@ export class AppComponent implements OnInit {
   }
 
   restart() {
-    this.tween
-    .to(this, 10000, { num: -1000, num2: 5000 })
-    .do(x => Object.assign(this, x))
+    let p = { num: -1000, num2: 5000 } as Nums;
+    this.tween$ =
+      this.tween
+        .to(this, 10000, p);
+
+    this.tween$.do(x => Object.assign(this, x))
         .subscribe();
   }
 
