@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/do';
 
 
-import { TmpoTweenService } from '../../../src/tween';
+import { TmpoTweenService } from 'tmpo-tween';
 
 interface Nums {
   num: number;
@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
   num = 1000;
   num2 = -5000;
 
-  p:Nums = { num: -1000, num2: 5000 };
+  p: Nums = { num: -500, num2: 5000 };
 
   tween$: Observable<Nums>;
 
@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
 
     this.tween$ = this.tween
-      .to(this, 10000, this.p);
+      .to(this, 3000, this.p);
 
     this.tween$
       .do(x => Object.assign(this, x))
@@ -43,11 +43,9 @@ export class AppComponent implements OnInit {
 
   restart() {
     let p = { num: -1000, num2: 5000 } as Nums;
-    this.tween$ =
       this.tween
-        .to(this, 10000, p);
-
-    this.tween$.do(x => Object.assign(this, x))
+        .to(this, 10000, p)
+        .do(x => Object.assign(this, x))
         .subscribe();
   }
 

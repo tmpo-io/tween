@@ -17,7 +17,66 @@ My use case is working with pixi.js
 
 Example:
 
+```javascript
+import { Component, OnInit } from '@angular/core';
+
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/do';
+
+
+import { TmpoTweenService } from 'tmpo-tween';
+
+interface Nums {
+  num: number;
+  num2: number;
+}
+
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent implements OnInit {
+
+  num = 1000;
+  num2 = -5000;
+
+  p: Nums = { num: -500, num2: 5000 };
+
+  tween$: Observable<Nums>;
+
+  title = 'Observable property tween';
+
+  constructor(public tween: TmpoTweenService) { }
+
+  ngOnInit() {
+
+    this.tween
+      .to(this, 3000, this.p)
+      .do(x => Object.assign(this, x))
+      .subscribe();
+
+  }
+
+  restart() {
+    this.tween$ =
+      this.tween
+        .to(this, 10000, this.p);
+
+    this.tween$.do(x => Object.assign(this, x))
+        .subscribe();
+  }
+
+  stop() {
+    this.tween.stopAll();
+  }
+
+
+}
 ```
 
 
+Check a demo here
+http://embed.plnkr.co/1GE1GI/
 

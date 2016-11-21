@@ -1,6 +1,6 @@
 {
   "name": "tmpo-tween",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "main": "./bundles/store.umd.js",
   "module": "index.js",
