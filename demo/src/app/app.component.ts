@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/do';
 
 
-import { TmpoTweenService } from 'tmpo-tween';
+import { TmpoTweenService } from '../../../src/tween';
 
 interface Nums {
   num: number;
