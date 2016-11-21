@@ -6,7 +6,9 @@
 
 # dependencies
 /node_modules
+/demo/node_modules
 /bower_components
+/release
 
 # IDEs and editors
 /.idea

@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 
-import { TmpoTween } from './tween';
+import { TmpoTweenService } from './tween';
 
 @NgModule({
-  providers: [TmpoTween]
+  providers: [TmpoTweenService]
 })
 export class TmpoTweenModule {
 

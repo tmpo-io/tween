@@ -14,7 +14,7 @@ import { Easing } from './easing';
 
 
 @Injectable()
-export class TmpoTween {
+export class TmpoTweenService {
 
   // cancel$ is a subject available for canceling
   // tweens in course
